@@ -4,10 +4,10 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>reveal.js - The HTML Presentation Framework</title>
+		<title>Responsive Layouts Using Compass / SASS</title>
 
-		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
-		<meta name="author" content="Hakim El Hattab">
+		<meta name="description" content="A presentation on responsive layouts using Compass/SASS.">
+		<meta name="author" content="Thomas Britton">
 
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -15,7 +15,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 		<link rel="stylesheet" href="css/reveal.min.css">
-		<link rel="stylesheet" href="css/theme/default.css" id="theme">
+		<link rel="stylesheet" href="css/theme/simple.css" id="theme">
 
 		<!-- For syntax highlighting -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
@@ -43,25 +43,254 @@
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
 				<section>
-					<h1>Reveal.js</h1>
-					<h3>HTML Presentations Made Easy</h3>
+					<h1>Responsive Layout</h1>
+					<h3>Using Compass/SASS</h3>
 					<p>
-						<small>Created by <a href="http://hakim.se">Hakim El Hattab</a> / <a href="http://twitter.com/hakimel">@hakimel</a></small>
+						<small>Presented by <a href="http://tmbritton.com">Thomas Britton</a> / Github: <a href="http://github.com/tmbritton">tmbritton</a></small>
 					</p>
 				</section>
 
 				<section>
-					<h2>Heads Up</h2>
-					<p>
-						reveal.js is a framework for easily creating beautiful presentations using HTML. You'll need a browser with
-						support for CSS 3D transforms to see it in its full glory.
-					</p>
 
-					<aside class="notes">
-						Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
-					</aside>
+					<section>
+						<h2>What is Responsive Design?</h2>
+						<p class="fragment">
+							Responsive web design (RWD) is a web design approach aimed at crafting sites to provide an optimal viewing experience—easy reading and navigation with a minimum of resizing, panning, and scrolling—across a wide range of devices (from mobile phones to desktop computer monitors).
+						</p>
+						<p class="fragment"><small>According to Wikipedia</small></p>
+					</section>
+
+					<section>
+						<h2>So this:</h2>
+						<img src="lib/img/responsive-example.jpg" alt="Responsive example" />
+					</section>
+
+					<section>
+						<h2>Not this:</h2>
+						<img src="lib/img/responsive-not-example.jpg" alt="Responsive not example" />
+					</section>
+
 				</section>
 
+				<section>
+
+					<section>
+						<h1>What's SASS?</h1>
+					</section>
+
+					<section>
+						<h2>SASS</h2>
+						<h3 class="fragment">Syntactically Awesome Style Sheets</h3>
+						<p class="fragment">Sass is an extension of CSS that adds power and elegance to the basic language. It allows you to use variables, nested rules, mixins, inline imports, and more, all with a fully CSS-compatible syntax. Sass helps keep large stylesheets well-organized, and get small stylesheets up and running quickly, particularly with the help of the Compass style library.</p>
+					</section>
+
+					<section>
+						<h3>Let's take a look at some of the features.</h3>
+					</section>
+
+					<section>
+						<h2>Variables</h2>
+						<pre><code>
+$font-stack:    Helvetica, sans-serif;
+$primary-color: #333;
+
+body {
+  font: 100% $font-stack;
+  color: $primary-color;
+}
+						</code></pre>
+					</section>
+
+					<section>
+						<h3>Renders as:</h3>
+						<pre><code>
+body {
+  font: 100% Helvetica, sans-serif;
+  color: #333;
+}
+						</pre></code>
+
+					</section>
+
+					<section>
+						<h2>Nesting</h2>
+						<pre><code>
+nav {
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  li { display: inline-block; }
+
+  a {
+    display: block;
+    padding: 6px 12px;
+    text-decoration: none;
+  }
+}
+						</code></pre>
+					</section>
+
+					<section>
+						<h3>Renders as:</h3>
+						<pre><code>
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+nav li {
+  display: inline-block;
+}
+
+nav a {
+  display: block;
+  padding: 6px 12px;
+  text-decoration: none;
+}
+						</code></pre>
+
+					</section>
+
+					<section>
+						<h2>Partials</h2>
+						<p>You can create partial Sass files that contain little snippets of CSS that you can include in other Sass files. This is a great way to modularize your CSS and help keep things easier to maintain...</p>
+						<p class="fragment">...as long as you have a structure when you begin and your team adheres to coding standards.</p>
+					</section>
+
+					<section>
+						<h2>Import</h2>
+						<p>CSS has an import option that lets you split your CSS into smaller, more maintainable portions. Sass builds on top of the current CSS @import but instead of loading a file on the front-end, Sass will take the file that you want to import and combine it with the file you're importing into so you can serve a single CSS file to the web browser.</p>
+					</section>
+
+					<section>
+						<p>Let's say you have a couple of Sass files, <code>_reset.scss</code> and <code>base.scss</code>. We want to import <code>_reset.scss</code> into <code>base.scss</code>.</p>
+						<div class="fragment">
+							<pre><code>
+// _reset.scss
+
+html,
+body,
+ul,
+ol {
+   margin: 0;
+  padding: 0;
+}
+							</code></pre>
+						</div>
+
+						<div class="fragment">
+							<pre><code>
+// base.scss
+
+@import 'reset';
+
+body {
+  font-size: 100% Helvetica, sans-serif;
+  background-color: #efefef;
+}
+							</code></pre>
+						</div>
+					</section>
+
+					<section>
+						<h3>Renders as:</h3>
+						<pre><code>
+html, body, ul, ol {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #efefef;
+  font-size: 100% Helvetica, sans-serif;
+}
+						</pre></code>
+
+					</section>
+
+					<section>
+						<h2>Mixins</h2>
+						<p>A mixin lets you make groups of CSS declarations that you want to reuse throughout your site. You can pass in values to make your mixin more flexible.</p>
+						<div class="fragment">
+							<pre><code>
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+
+.box { @include border-radius(10px); }
+
+							</code></pre>
+						</div>
+					</section>
+
+					<section>
+						<h3>Renders as:</h3>
+						<pre><code>
+.box {
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  border-radius: 10px;
+}
+						</code></pre>
+					</section>
+
+					<section>
+						<h2>Operators</h2>
+						<p>Sass has a handful of standard math operators like <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <br />and <code>%</code>.</p>
+						<div class="fragment">
+							<pre><code>
+.container { width: 100%; }
+
+article[role="main"] {
+  float: left;
+  width: 600px / 960px * 100%;
+}
+
+aside[role="complimentary"] {
+  float: right;
+  width: 300px / 960px * 100%;
+}
+							</code></pre>
+						</div>
+						<p class="fragment">We've created a very simple fluid grid, based on 960px. Operations in Sass let us do something like take pixel values and convert them to percentages.</p>
+					</section>
+
+					<section>
+						<h3>Renders As:</h3>
+						<pre><code>
+.container {
+  width: 100%;
+}
+
+article[role="main"] {
+  float: left;
+  width: 62.5%;
+}
+
+aside[role="complimentary"] {
+  float: right;
+  width: 31.25%;
+}
+						</code></pre>
+
+					</section>
+
+				</section>
+
+				<section>
+					<section>
+						<h1>What's Compass?</h1>
+					</section>
+
+				</section>
 				<!-- Example of nested vertical slides -->
 				<section>
 					<section>
