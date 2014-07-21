@@ -1,0 +1,34 @@
+#rwdpres {
+  table {
+    thead {
+      tr {
+        background: #000;
+      }
+      th {
+        color: #fff;
+      }
+    }
+  }
+}
+
+.table-striped {
+  tbody {
+    tr:nth-child(even) {
+      background: #eee;
+    }
+  }
+  td, th {
+    padding: 3px 0 3px 3px;
+  }
+}
+
+.table-bordered {
+  tbody {
+    td {
+      border-right: 1px solid #000;
+    }
+    td:last-child {
+      border-right: 0 none;
+    }
+  }
+}

@@ -36,7 +36,7 @@
 		<![endif]-->
 	</head>
 
-	<body>
+	<body id="rwdpres">
 
 		<div class="reveal">
 
@@ -68,6 +68,101 @@
 					<section>
 						<h2>Not this:</h2>
 						<img src="lib/img/responsive-not-example.jpg" alt="Responsive not example" />
+					</section>
+
+				</section>
+
+				<section>
+					<h2>SASS vs LESS</h2>
+					<table id="sassvsless" class="table-striped table-bordered" style="width: 47%; margin: 0 auto; text-align: center;">
+						<caption class="fragment">Both are CSS pre-processors.</caption>
+						<thead>
+							<tr class="fragment"><th>SASS</th><th>LESS</th></tr>
+						</thead>
+						<tbody>
+							<tr class="fragment"><td>Ruby</td><td>Javascript</td></tr>
+							<tr class="fragment"><td>Compass, Bourbon</td><td>???</td></tr>
+						</tbody>
+					</table>
+					<p class="fragment">Extensibility is the greatest benefit SASS has over LESS. More mixin frameworks
+					exist to increase efficiency of working with SASS. At a basic level working with SASS
+					and LESS is very similar.</p>
+				</section>
+
+				<section>
+
+					<section>
+						<h2>Why not Bootstrap/Zurb Foundation?</h2>
+					</section>
+
+					<section>
+						<h2>Ugly HTML</h2>
+						<pre><code>
+<div class="row">
+  <div class="span4">...</div>
+  <div class="span3 offset2">...</div>
+</div>
+						</code></pre>
+						<p class="fragment">
+							The grid system requires a lot of presentational classes and wrapping containers.
+						</p>
+					</section>
+
+					<section>
+						<h2>Fixed Breakpoints</h2>
+						<table class="table table-bordered table-striped fragment">
+            <thead>
+              <tr>
+                <th>Label</th>
+                <th>Layout width</th>
+                <th>Column width</th>
+                <th>Gutter width</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Large display</td>
+                <td>1200px and up</td>
+                <td>70px</td>
+                <td>30px</td>
+              </tr>
+              <tr>
+                <td>Default</td>
+                <td>980px and up</td>
+                <td>60px</td>
+                <td>20px</td>
+              </tr>
+              <tr>
+                <td>Portrait tablets</td>
+                <td>768px and above</td>
+                <td>42px</td>
+                <td>20px</td>
+              </tr>
+              <tr>
+                <td>Phones to tablets</td>
+                <td>767px and below</td>
+                <td class="muted" colspan="2">Fluid columns, no fixed widths</td>
+              </tr>
+              <tr>
+                <td>Phones</td>
+                <td>480px and below</td>
+                <td class="muted" colspan="2">Fluid columns, no fixed widths</td>
+              </tr>
+            </tbody>
+          </table>
+
+						<p class="fragment">Anybody know where a Samsung Galaxy Note 3 fits?</p>
+						<p class="fragment">Or an iPad mini?</p>
+						<p class="fragment">Or any Windows phone?</p>
+					</section>
+
+					<section>
+						<h2>Your site is gonna look like Bootstrap</h2>
+						<p class="fragment">Unless you spend a lot of time overriding default styles.</p>
+					</section>
+
+					<section>
+						<h2>So why not just start with the styles you want?</h2>
 					</section>
 
 				</section>
@@ -331,6 +426,38 @@ aside[role="complimentary"] {
 								<a href="http://compass-style.org/reference/compass/utilities/">Utilities</a>
 								<p>The Compass Utilities module provides some basic mixins for common styling patterns.</p>
 							</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Some Handy Ruby Gems</h2>
+						<ul>
+							<li class="fragment"><a target="_blank" href="https://github.com/ksmandersen/compass-normalize">Compass Normalize</a></li>
+							<li class="fragment"><a target="_blank" href="http://breakpoint-sass.com/">Breakpoint</a></li>
+							<li class="fragment"><a target="_blank" href="http://jaredhardy.com/sassy-buttons/">Sassy Buttons</a></li>
+							<li class="fragment"><a target="_blank" href="https://github.com/Team-Sass/Singularity">Singularity GS</a></li>
+							<li class="fragment"><a target="_blank" href="https://github.com/Team-Sass">Team SASS</a></li>
+							<li class="fragment"><a target="_blank" href="https://rubygems.org/search?query=compass">Search of Rubygems.org for Compass</a></li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Compass command-line utility</h2>
+						<p>It processes the <code>SCSS</code> partials and renders the browser-readable <code>CSS</code>.</p>
+						<p class="fragment">There are a couple of commands I use all the time:</p>
+						<ul>
+							<li class="fragment"><code>compass watch</code></li>
+							<li class="fragment"><code>compass compile</code></li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Non-command-line tools</h2>
+						<p>Not everybody is a nerd or on a Unixy system.</p>
+						<ul>
+							<li><a href="https://incident57.com/codekit/">Codekit</a></li>
+							<li><a href="http://livereload.com/">Live Reload</a></li>
+							<li><a href="http://compass.kkbox.com/">Compass.app</a></li>
 						</ul>
 					</section>
 

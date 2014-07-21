@@ -136,3 +136,18 @@ body {
  *********************************************/
 .reveal .slide-number {
   color: darkblue; }
+
+#rwdpres table thead tr {
+  background: #000; }
+#rwdpres table thead th {
+  color: #fff; }
+
+.table-striped tbody tr:nth-child(even) {
+  background: #eee; }
+.table-striped td, .table-striped th {
+  padding: 3px 0 3px 3px; }
+
+.table-bordered tbody td {
+  border-right: 1px solid #000; }
+.table-bordered tbody td:last-child {
+  border-right: 0 none; }
